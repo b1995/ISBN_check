@@ -1,0 +1,25 @@
+def checkDigit num
+    sum = 0
+    i = 0
+    numArr = num.to_s.chars.map{ |ele| ele.to_i}
+
+    numArr.each_with_index do |ele , i|
+        if i % 2 == 0
+            sum += ele 
+        else
+            sum += ele * 3
+        end
+    end
+    
+    mod = sum % 10
+
+    if mod == 0
+        digit = 0
+    else
+        digit = 10 - mod
+    end
+
+    numArr << digit
+
+    return numArr.join("")
+end
